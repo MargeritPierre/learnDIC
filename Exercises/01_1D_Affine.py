@@ -35,7 +35,7 @@ plt.show()
 # left: ds(i) = s(i) - s(i-1)
 # right: ds(i) = s(i+1) - s(i)
 def d_dx(s):
-    return np.hstack((s[1]-s[0] , s[2:]-s[0:-2] , s[-1]-s[-2]))
+    return np.hstack((s[1]-s[0] , (s[2:]-s[0:-2])/2 , s[-1]-s[-2]))
 # Display example
 plt.plot(s,label='Signal')
 plt.plot(d_dx(s),label='Derivative')
