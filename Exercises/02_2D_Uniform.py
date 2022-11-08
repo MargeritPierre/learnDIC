@@ -50,10 +50,10 @@ plt.show()
 #%% Gradient function ************************************************
 # using finite difference schemes
 def d_dx1(I):
-    return np.c_[I[:,1]-I[:,0] , I[:,2:]-I[:,0:-2] , I[:,-1]-I[:,-2]]
+    return np.c_[I[:,1]-I[:,0] , (I[:,2:]-I[:,0:-2])/2 , I[:,-1]-I[:,-2]]
 def d_dx2(I):
     na = np.newaxis
-    return np.r_[I[1,na]-I[0,na] , I[2:,:]-I[0:-2,:] , I[-1,na]-I[-2,na]]
+    return np.r_[I[1,na]-I[0,na] , (I[2:,:]-I[0:-2,:])/2 , I[-1,na]-I[-2,na]]
 # Display gradients
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
